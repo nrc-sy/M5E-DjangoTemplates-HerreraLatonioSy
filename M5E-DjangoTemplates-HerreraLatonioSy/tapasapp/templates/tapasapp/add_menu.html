@@ -4,13 +4,13 @@ March , 2026
 
 I hereby attest to the truth of the following facts:
 
-I have not discussed the Python language code in my program with anyone
+I have not discussed the HTML language code in my program with anyone
 other than my instructor or the teaching assistants assigned to this course.
 
-I have not used Python language code obtained from another student, or
+I have not used HTML language code obtained from another student, or
 any other unauthorized source, either modified or unmodified.
 
-If any Python language code or documentation used in my program was
+If any HTML language code or documentation used in my program was
 obtained from another source, such as a textbook or course notes, that has been clearly noted with proper citation in the
 comments of my program.
 -->
@@ -19,11 +19,47 @@ comments of my program.
 {% load static %}
 
 {% block content %}
-<h2>My Tapas Menu</h2>
-<form>
-    <label>Name:</label><input type="text" name="dish_name"><br>
-    <label>Cook Time:</label><input type="number" name="cook_time"><br>
-    <label>Prep Time:</label><input type="number" name="prep_time"><br>
-    <button type="submit">Add to dishes</button>
-</form>
+
+<div class="container mt-4">
+    <div class="col-md-8">
+
+        <div class="card">
+            <div class="card-header bg-light">
+                <h5>Type in Dish Details:</h5>
+            </div>
+
+            <div class="card-body">
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group mb-3">
+                        <label>Name:</label>
+                        <input type="text" name="dish_name" class="form-control">
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <div class="col-md-3">
+                            <label>Cook Time:</label>
+                            <input type="text" name="cook_time" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 offset-md-2">
+                            <label>Prep Time:</label>
+                            <input type="text" name="prep_time" class="form-control">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">
+                        Add to dishes
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}
